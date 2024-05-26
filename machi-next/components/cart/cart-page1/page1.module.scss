@@ -1,0 +1,204 @@
+
+
+
+
+.card-body {
+  
+  padding: 0;
+}
+
+.h4{
+  font-size: 24px;
+}
+
+.h5{
+  font-size: 20px;
+}
+
+.customfont{
+  font-size: 20px;
+}
+
+.custom-checkbox {
+  background: white;
+  color: #c0c0c0;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #c0c0c0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  // overflow: hidden;
+
+  border-radius: 3px;
+  &:hover{
+    border: 2px solid #969595;
+  }
+}
+.checkgood{
+  color: var(--light-brown);
+}
+
+.text-border-brown{
+  border-bottom: 1px solid #ab927d;  
+}
+
+.text-border-grey{
+  border-bottom: 1px solid #c0c0c0;  
+}
+.border-borwn{
+  border-bottom: 2px solid #ab927d;  
+}
+
+
+
+.addbutton{
+ border: 1px solid #ab927d;  
+ margin-bottom: 0;
+}
+
+.cart-button {
+  width: 192px;
+  background: #cebbaa;
+  border-radius: 3px;
+  border-style: solid;
+  border-color: var(--primary-dark, #785e4c);
+  border-width: 0px;
+  padding: 10px 48px 10px 48px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  &:hover{
+    
+    background: #b4a394;
+  }
+}
+.cart-button-text {
+  color: var(--white, #ffffff);
+  text-align: left;
+
+  font-size: 18px;
+  font-weight: 700;
+  position: relative;
+}
+.btn-outline-secondary {
+  :hover{
+    --bs-btn-hover-color: #ffffff;
+  }
+}
+
+
+
+@media (max-width: 760px) {
+  .main-area {
+    padding: 0 10px;
+  }
+
+  .h4, .h5, .h6 {
+    font-size: 16px;
+  }
+
+.custom-checkbox{
+  width: 25px;
+  height: 25px;
+}
+
+  .card-body {
+    gap: 8px;
+  }
+
+  .cart-button {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .step-button-text {
+    font-size: 16px;
+  }
+
+  .form-control, .custom-input {
+    font-size: 14px;
+  }
+
+  .pay-button {
+    padding: 8px;
+    font-size: 14px;
+  }
+}
+
+.item-card{
+  gap: 48px;
+
+   img{
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+  }
+  
+}
+
+
+.bi-trash3size{
+  font-size: 20px;
+  width: 46px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 390px) {
+  .h4, .h5, .h6 {
+    font-size: 16px;
+  }
+
+  .customfont{
+    font-size: 16px;
+    width: 100px; /* 設定容器寬度 */
+    white-space: normal; /* 允許換行 */
+    overflow-wrap: break-word; /* 允許長單詞換行 */
+  }
+
+
+.hide-on-small{
+  display: none !important;
+}
+
+.item-card{
+  
+  gap: 8px;
+  img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+  }
+}
+
+.bi-trash3size{
+  font-size: 16px;
+  width: 32px;
+  height: 32px;
+  padding: 2px,2px,2px,2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+}
+
+
+
+
+
+
+
+
+
+

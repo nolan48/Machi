@@ -198,7 +198,9 @@ const CartPage1 = ({
   }
   return items.length === 0 ? (
     <>
-      <h2>您未選擇任何商品</h2>
+      <div className="d-flex  justify-content-center">
+        <h2 className={``}>您未選擇任何商品</h2>
+      </div>
     </>
   ) : (
     <>
@@ -328,7 +330,7 @@ const CartPage1 = ({
                 </div>
                 <div className={`d-flex g-3 justify-content-between col   `}>
                   <div
-                    className={`btn-group d-flex  ${styles['border-borwn']} `}
+                    className={`btn-group d-flex  ${styles['addbutton']} `}
                     role={`group`}
                     aria-label={`Basic mixed styles example `}
                   >
@@ -438,9 +440,7 @@ const CartPage1 = ({
                     </div>
                   </div>
                 </div>
-                <div
-                  className={`d-flex g-3 justify-content-between col addbuton`}
-                >
+                <div className={`d-flex g-3 justify-content-between col `}>
                   <div
                     className={`btn-group d-flex    ${styles['btn-count']}`}
                     role={`group`}

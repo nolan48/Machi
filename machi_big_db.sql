@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2024-05-26 07:50:15
+-- 產生時間： 2024-07-07 23:11:07
 -- 伺服器版本： 10.4.32-MariaDB
 -- PHP 版本： 8.2.12
 
@@ -109,6 +109,30 @@ CREATE TABLE `article_image` (
   `article_id_fk` int(6) NOT NULL,
   `article_image_filename` varchar(600) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `cache`
+--
+
+CREATE TABLE `cache` (
+  `key` varchar(255) NOT NULL,
+  `value` mediumtext NOT NULL,
+  `expiration` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `cache_locks`
+--
+
+CREATE TABLE `cache_locks` (
+  `key` varchar(255) NOT NULL,
+  `owner` varchar(255) NOT NULL,
+  `expiration` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -488,6 +512,78 @@ INSERT INTO `course_teacher` (`teacher_id`, `teacher_img`, `teacher_name`, `teac
 -- --------------------------------------------------------
 
 --
+-- 資料表結構 `failed_jobs`
+--
+
+CREATE TABLE `failed_jobs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `uuid` varchar(255) NOT NULL,
+  `connection` text NOT NULL,
+  `queue` text NOT NULL,
+  `payload` longtext NOT NULL,
+  `exception` longtext NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `jobs`
+--
+
+CREATE TABLE `jobs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `queue` varchar(255) NOT NULL,
+  `payload` longtext NOT NULL,
+  `attempts` tinyint(3) UNSIGNED NOT NULL,
+  `reserved_at` int(10) UNSIGNED DEFAULT NULL,
+  `available_at` int(10) UNSIGNED NOT NULL,
+  `created_at` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `job_batches`
+--
+
+CREATE TABLE `job_batches` (
+  `id` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `total_jobs` int(11) NOT NULL,
+  `pending_jobs` int(11) NOT NULL,
+  `failed_jobs` int(11) NOT NULL,
+  `failed_job_ids` longtext NOT NULL,
+  `options` mediumtext DEFAULT NULL,
+  `cancelled_at` int(11) DEFAULT NULL,
+  `created_at` int(11) NOT NULL,
+  `finished_at` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `migration` varchar(255) NOT NULL,
+  `batch` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- 傾印資料表的資料 `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(1, '0001_01_01_000000_create_users_table', 1),
+(2, '0001_01_01_000001_create_cache_table', 1),
+(3, '0001_01_01_000002_create_jobs_table', 1);
+
+-- --------------------------------------------------------
+
+--
 -- 資料表結構 `order`
 --
 
@@ -515,7 +611,20 @@ INSERT INTO `order` (`order_id`, `user_id_fk`, `order_payment`, `order_username`
 (53, 10, 'linePay', '徐健華', '大馬路', '0900555444', 1, 4000, '已付款', '2024-05-20'),
 (54, 10, 'linePay', '徐健華', '大馬路', '0900555444', 7, 14890, '已付款', '2024-05-20'),
 (55, 12, 'linePay', '徐健華', '桃園市中壢區大馬路', '0955588844', 6, 10750, '已付款', '2024-05-21'),
-(56, 12, 'linePay', '徐健華', '桃園市中壢區大馬路', '0955588844', 6, 10750, '已付款', '2024-05-21');
+(56, 12, 'linePay', '徐健華', '桃園市中壢區大馬路', '0955588844', 6, 10750, '已付款', '2024-05-21'),
+(57, 13, 'creditCard', '123', '123', '0988888888', 12, 7330, '已付款', '2024-05-26'),
+(58, 13, 'creditCard', '123', '123', '0988888880', 12, 7330, '已付款', '2024-05-26'),
+(59, 13, 'creditCard', '123', '123', '0988888880', 12, 7330, '已付款', '2024-05-26'),
+(60, 13, 'creditCard', '1231', '123', '1231231231', 12, 7330, '已付款', '2024-05-26'),
+(61, 13, 'linePay', '123', '123', '1231231231', 5, 10220, '已付款', '2024-05-26'),
+(62, 13, 'linePay', '123', '1123', '1231231231', 4, 2940, '已付款', '2024-05-26'),
+(63, 13, 'linePay', '123123', '123', '1231231231', 4, 2940, '已付款', '2024-05-26'),
+(64, 13, 'linePay', '123', '123', '1231231231', 4, 2940, '已付款', '2024-05-26'),
+(65, 13, 'linePay', '123123', '123', '1231231231', 4, 2940, '已付款', '2024-05-26'),
+(66, 13, 'linePay', '123123', '123', '1231231231', 2, 1700, '已付款', '2024-05-26'),
+(67, 13, 'linePay', '123', '123', '1231231231', 2, 1700, '已付款', '2024-05-26'),
+(68, 13, 'linePay', '123', '123', '1231231231', 3, 2320, '已付款', '2024-05-26'),
+(69, 14, 'linePay', '123', '1231231231', '1231231231', 5, 7320, '已付款', '2024-06-12');
 
 -- --------------------------------------------------------
 
@@ -559,7 +668,68 @@ INSERT INTO `order_item` (`order_item_id`, `order_id_fk`, `order_product_type`, 
 (68, 56, 'product', 10830, '極濃小山園抹茶', '6吋', 1, 450),
 (69, 56, 'custom', 178, '自訂商品', '9吋,3層,抹茶,綜合莓果', 1, 1100),
 (70, 56, 'course', 25, '蜜桃莓果晶凍達克瓦茲蛋糕', '2024-05-17T09:00:00.000Z', 1, 4000),
-(71, 56, 'course', 26, '蓬鬆野酵麵包', '2024-05-22T09:30:00.000Z', 1, 3500);
+(71, 56, 'course', 26, '蓬鬆野酵麵包', '2024-05-22T09:30:00.000Z', 1, 3500),
+(72, 57, 'product', 10824, '春綠 ‧ 輕抹慕斯蛋糕', '6吋', 1, 1080),
+(73, 57, 'product', 10825, '達克瓦茲好茶禮盒', '', 1, 620),
+(74, 57, 'product', 10826, '鹿野紅烏龍戚風蛋糕', '6吋', 2, 620),
+(75, 57, 'product', 10830, '極濃小山園抹茶', '6吋', 1, 450),
+(76, 57, 'product', 10829, '巴斯克乳酪蛋糕', '6吋', 4, 450),
+(77, 57, 'product', 10828, '小山園抹茶 生巧克力 (140g/盒)', '', 2, 520),
+(78, 57, 'custom', 188, '自訂商品', '9吋,3層,巧克力,橙片咖啡', 1, 1100),
+(79, 58, 'product', 10824, '春綠 ‧ 輕抹慕斯蛋糕', '6吋', 1, 1080),
+(80, 58, 'product', 10825, '達克瓦茲好茶禮盒', '', 1, 620),
+(81, 58, 'product', 10826, '鹿野紅烏龍戚風蛋糕', '6吋', 2, 620),
+(82, 58, 'product', 10830, '極濃小山園抹茶', '6吋', 1, 450),
+(83, 58, 'product', 10829, '巴斯克乳酪蛋糕', '6吋', 4, 450),
+(84, 58, 'product', 10828, '小山園抹茶 生巧克力 (140g/盒)', '', 2, 520),
+(85, 58, 'custom', 188, '自訂商品', '9吋,3層,巧克力,橙片咖啡', 1, 1100),
+(86, 59, 'product', 10824, '春綠 ‧ 輕抹慕斯蛋糕', '6吋', 1, 1080),
+(87, 59, 'product', 10825, '達克瓦茲好茶禮盒', '', 1, 620),
+(88, 59, 'product', 10826, '鹿野紅烏龍戚風蛋糕', '6吋', 2, 620),
+(89, 59, 'product', 10830, '極濃小山園抹茶', '6吋', 1, 450),
+(90, 59, 'product', 10829, '巴斯克乳酪蛋糕', '6吋', 4, 450),
+(91, 59, 'product', 10828, '小山園抹茶 生巧克力 (140g/盒)', '', 2, 520),
+(92, 59, 'custom', 188, '自訂商品', '9吋,3層,巧克力,橙片咖啡', 1, 1100),
+(93, 60, 'product', 10824, '春綠 ‧ 輕抹慕斯蛋糕', '6吋', 1, 1080),
+(94, 60, 'product', 10825, '達克瓦茲好茶禮盒', '', 1, 620),
+(95, 60, 'product', 10826, '鹿野紅烏龍戚風蛋糕', '6吋', 2, 620),
+(96, 60, 'product', 10830, '極濃小山園抹茶', '6吋', 1, 450),
+(97, 60, 'product', 10829, '巴斯克乳酪蛋糕', '6吋', 4, 450),
+(98, 60, 'product', 10828, '小山園抹茶 生巧克力 (140g/盒)', '', 2, 520),
+(99, 60, 'custom', 188, '自訂商品', '9吋,3層,巧克力,橙片咖啡', 1, 1100),
+(100, 61, 'product', 10824, '春綠 ‧ 輕抹慕斯蛋糕', '6吋', 1, 1080),
+(101, 61, 'product', 10825, '達克瓦茲好茶禮盒', '', 1, 620),
+(102, 61, 'product', 10826, '鹿野紅烏龍戚風蛋糕', '6吋', 1, 620),
+(103, 61, 'course', 24, '常溫餅乾2.0 酥 鬆 脆 鹹甜餅乾教科書', '2024-05-13T09:30:00.000Z', 1, 3900),
+(104, 61, 'course', 17, '經典日式水蜜桃塔＆日月潭紅玉紅茶生乳布丁', '2024-05-22T09:30:00.000Z', 1, 4000),
+(105, 62, 'product', 10823, '鳳梨芒果起司塔', '6吋', 1, 620),
+(106, 62, 'product', 10824, '春綠 ‧ 輕抹慕斯蛋糕', '6吋', 1, 1080),
+(107, 62, 'product', 10825, '達克瓦茲好茶禮盒', '', 1, 620),
+(108, 62, 'product', 10826, '鹿野紅烏龍戚風蛋糕', '6吋', 1, 620),
+(109, 63, 'product', 10823, '鳳梨芒果起司塔', '6吋', 1, 620),
+(110, 63, 'product', 10824, '春綠 ‧ 輕抹慕斯蛋糕', '6吋', 1, 1080),
+(111, 63, 'product', 10825, '達克瓦茲好茶禮盒', '', 1, 620),
+(112, 63, 'product', 10826, '鹿野紅烏龍戚風蛋糕', '6吋', 1, 620),
+(113, 64, 'product', 10823, '鳳梨芒果起司塔', '6吋', 1, 620),
+(114, 64, 'product', 10824, '春綠 ‧ 輕抹慕斯蛋糕', '6吋', 1, 1080),
+(115, 64, 'product', 10825, '達克瓦茲好茶禮盒', '', 1, 620),
+(116, 64, 'product', 10826, '鹿野紅烏龍戚風蛋糕', '6吋', 1, 620),
+(117, 65, 'product', 10823, '鳳梨芒果起司塔', '6吋', 1, 620),
+(118, 65, 'product', 10824, '春綠 ‧ 輕抹慕斯蛋糕', '6吋', 1, 1080),
+(119, 65, 'product', 10825, '達克瓦茲好茶禮盒', '', 1, 620),
+(120, 65, 'product', 10826, '鹿野紅烏龍戚風蛋糕', '6吋', 1, 620),
+(121, 66, 'product', 10823, '鳳梨芒果起司塔', '6吋', 1, 620),
+(122, 66, 'product', 10824, '春綠 ‧ 輕抹慕斯蛋糕', '6吋', 1, 1080),
+(123, 67, 'product', 10823, '鳳梨芒果起司塔', '6吋', 1, 620),
+(124, 67, 'product', 10824, '春綠 ‧ 輕抹慕斯蛋糕', '6吋', 1, 1080),
+(125, 68, 'product', 10825, '達克瓦茲好茶禮盒', '', 1, 620),
+(126, 68, 'product', 10826, '鹿野紅烏龍戚風蛋糕', '6吋', 1, 620),
+(127, 68, 'product', 10824, '春綠 ‧ 輕抹慕斯蛋糕', '6吋', 1, 1080),
+(128, 69, 'product', 10824, '春綠 ‧ 輕抹慕斯蛋糕', '6吋', 1, 1080),
+(129, 69, 'product', 10825, '達克瓦茲好茶禮盒', '', 1, 620),
+(130, 69, 'product', 10826, '鹿野紅烏龍戚風蛋糕', '6吋', 1, 620),
+(131, 69, 'custom', 209, '自訂商品', '9吋,3層,抹茶,綜合莓果', 1, 1100),
+(132, 69, 'course', 24, '常溫餅乾2.0 酥 鬆 脆 鹹甜餅乾教科書', '2024-05-13T09:30:00.000Z', 1, 3900);
 
 -- --------------------------------------------------------
 
@@ -576,6 +746,18 @@ CREATE TABLE `otp` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `password_reset_tokens`
+--
+
+CREATE TABLE `password_reset_tokens` (
+  `email` varchar(255) NOT NULL,
+  `token` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -787,6 +969,21 @@ INSERT INTO `purchase_order` (`id`, `user_id`, `amount`, `transaction_id`, `paym
 -- --------------------------------------------------------
 
 --
+-- 資料表結構 `sessions`
+--
+
+CREATE TABLE `sessions` (
+  `id` varchar(255) NOT NULL,
+  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `ip_address` varchar(45) DEFAULT NULL,
+  `user_agent` text DEFAULT NULL,
+  `payload` longtext NOT NULL,
+  `last_activity` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- 資料表結構 `user`
 --
 
@@ -826,7 +1023,52 @@ INSERT INTO `user` (`user_id`, `user_name`, `user_nickname`, `user_account`, `us
 (8, NULL, NULL, '寶媽', '$2b$10$tTzg02SH8y2DBvPys2TGx.c78GfgiI3XLTdiygiPhaZBrTQIy9eCS', 'baoma@gmail.com', '女性', NULL, '8.jpg', NULL, NULL, NULL, 1, NULL, NULL, NULL, '2024-05-18 16:08:01', '2024-05-18 16:08:01'),
 (10, '徐健華', NULL, 'WWW', '$2b$10$UkH.Z507KJpX6FVct4oioOijE8yVRkDCJzfjlgJBtMdMdHxU7r6YG', 'WWW@123', '不願透漏', NULL, '0.jpg', '0900555444', '大馬路', NULL, 1, NULL, NULL, NULL, '2024-05-20 12:28:30', '2024-05-20 12:28:30'),
 (11, NULL, NULL, 'qqq@123', '$2b$10$LSqCt1oK2my7YmrcRIoHYeMh79qY2nh88sj/GWTPr7DTkg0FPpBW.', 'qqq@123', '不願透漏', NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2024-05-20 18:30:26', '2024-05-20 18:30:26'),
-(12, NULL, NULL, NULL, '$2b$10$Bw71./ztlUwSLhpBiXT.AuOOXrLDIPWso89MhP0Wz/cMZQJyXC.g2', '123321@123', '不願透漏', NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2024-05-21 17:27:30', '2024-05-21 17:27:30');
+(12, NULL, NULL, NULL, '$2b$10$Bw71./ztlUwSLhpBiXT.AuOOXrLDIPWso89MhP0Wz/cMZQJyXC.g2', '123321@123', '不願透漏', NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2024-05-21 17:27:30', '2024-05-21 17:27:30'),
+(13, NULL, NULL, NULL, '123', '123@123', '不願透漏', NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2024-05-26 06:06:26', '2024-05-26 06:06:26'),
+(14, NULL, NULL, NULL, '123', '12333@123', '不願透漏', NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2024-06-12 04:30:18', '2024-06-12 04:30:18');
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `users`
+--
+
+CREATE TABLE `users` (
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `user_name` varchar(255) DEFAULT NULL,
+  `user_nickname` varchar(255) DEFAULT NULL,
+  `user_account` varchar(255) DEFAULT NULL,
+  `user_password` varchar(255) NOT NULL,
+  `user_email` varchar(255) NOT NULL,
+  `user_gender` varchar(255) NOT NULL DEFAULT '不願透漏',
+  `user_birthday` date DEFAULT NULL,
+  `user_image` varchar(255) DEFAULT NULL,
+  `user_phone` varchar(255) DEFAULT NULL,
+  `user_address` varchar(255) DEFAULT NULL,
+  `user_notes` varchar(255) DEFAULT NULL,
+  `user_status` tinyint(4) NOT NULL DEFAULT 1,
+  `google_uid` varchar(255) DEFAULT NULL,
+  `line_uid` varchar(255) DEFAULT NULL,
+  `line_access_token` text DEFAULT NULL,
+  `user_createtime` timestamp NOT NULL DEFAULT current_timestamp(),
+  `user_updatetime` timestamp NULL DEFAULT current_timestamp(),
+  `remember_token` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- 傾印資料表的資料 `users`
+--
+
+INSERT INTO `users` (`user_id`, `user_name`, `user_nickname`, `user_account`, `user_password`, `user_email`, `user_gender`, `user_birthday`, `user_image`, `user_phone`, `user_address`, `user_notes`, `user_status`, `google_uid`, `line_uid`, `line_access_token`, `user_createtime`, `user_updatetime`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, NULL, NULL, '223', '123', '223@223', '不願透漏', NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2024-07-05 08:45:04', '2024-07-05 08:45:04', NULL, '2024-07-05 08:45:05', '2024-07-05 08:45:05'),
+(2, NULL, NULL, '2233', '123', '223@2233', '不願透漏', NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2024-07-05 09:43:39', '2024-07-05 09:43:39', NULL, '2024-07-05 09:43:39', '2024-07-05 09:43:39'),
+(3, NULL, NULL, '33233', '123', '22333@2233', '不願透漏', NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2024-07-05 09:47:13', '2024-07-05 09:47:13', NULL, '2024-07-05 09:47:13', '2024-07-05 09:47:13'),
+(4, NULL, NULL, 'qwe', 'qwe', 'qwe@qwe', '不願透漏', NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2024-07-05 09:56:31', '2024-07-05 09:56:31', NULL, '2024-07-05 09:56:31', '2024-07-05 09:56:31'),
+(5, NULL, NULL, '123', '$2y$12$kTvgGfeW58KLcFkOCztgh.FZHHL0LOVJXrqTwCDMrrDbKkFbFtUS.', '123@123', '不願透漏', NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2024-07-05 11:27:19', '2024-07-05 11:27:19', NULL, '2024-07-05 11:27:19', '2024-07-05 11:27:19'),
+(6, NULL, NULL, 'asd', '$2y$12$P1zB8.2vuI3MLsUYd/WWLubIzAnvmD4yapURoN5DYMT4l/6jZwp2e', 'asd@asd', '不願透漏', NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2024-07-06 14:11:17', '2024-07-06 14:11:17', NULL, '2024-07-06 14:11:17', '2024-07-06 14:11:17'),
+(7, NULL, NULL, 'zxc', '$2y$12$Oy0SHJsUXyLb69y7qz9PrOjQA8gdgDULP6YevV3NkgBD.XtPV2xeK', 'zxc@zxc', '不願透漏', NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2024-07-07 10:46:39', '2024-07-07 10:46:39', NULL, '2024-07-07 10:46:39', '2024-07-07 10:46:39');
 
 --
 -- 已傾印資料表的索引
@@ -855,6 +1097,18 @@ ALTER TABLE `article_favorite`
 --
 ALTER TABLE `article_image`
   ADD PRIMARY KEY (`article_image_id`);
+
+--
+-- 資料表索引 `cache`
+--
+ALTER TABLE `cache`
+  ADD PRIMARY KEY (`key`);
+
+--
+-- 資料表索引 `cache_locks`
+--
+ALTER TABLE `cache_locks`
+  ADD PRIMARY KEY (`key`);
 
 --
 -- 資料表索引 `cart_item`
@@ -947,6 +1201,32 @@ ALTER TABLE `course_teacher`
   ADD PRIMARY KEY (`teacher_id`);
 
 --
+-- 資料表索引 `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- 資料表索引 `jobs`
+--
+ALTER TABLE `jobs`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `jobs_queue_index` (`queue`);
+
+--
+-- 資料表索引 `job_batches`
+--
+ALTER TABLE `job_batches`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- 資料表索引 `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- 資料表索引 `order`
 --
 ALTER TABLE `order`
@@ -963,6 +1243,12 @@ ALTER TABLE `order_item`
 --
 ALTER TABLE `otp`
   ADD PRIMARY KEY (`id`);
+
+--
+-- 資料表索引 `password_reset_tokens`
+--
+ALTER TABLE `password_reset_tokens`
+  ADD PRIMARY KEY (`email`);
 
 --
 -- 資料表索引 `product`
@@ -995,10 +1281,25 @@ ALTER TABLE `purchase_order`
   ADD PRIMARY KEY (`id`);
 
 --
+-- 資料表索引 `sessions`
+--
+ALTER TABLE `sessions`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `sessions_user_id_index` (`user_id`),
+  ADD KEY `sessions_last_activity_index` (`last_activity`);
+
+--
 -- 資料表索引 `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`user_id`);
+
+--
+-- 資料表索引 `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`),
+  ADD UNIQUE KEY `users_user_email_unique` (`user_email`);
 
 --
 -- 在傾印的資料表使用自動遞增(AUTO_INCREMENT)
@@ -1032,7 +1333,7 @@ ALTER TABLE `article_image`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `cart_item`
 --
 ALTER TABLE `cart_item`
-  MODIFY `cart_item_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=179;
+  MODIFY `cart_item_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=210;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `category`
@@ -1119,16 +1420,34 @@ ALTER TABLE `course_teacher`
   MODIFY `teacher_id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
+-- 使用資料表自動遞增(AUTO_INCREMENT) `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `jobs`
+--
+ALTER TABLE `jobs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- 使用資料表自動遞增(AUTO_INCREMENT) `order`
 --
 ALTER TABLE `order`
-  MODIFY `order_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `order_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `order_item`
 --
 ALTER TABLE `order_item`
-  MODIFY `order_item_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `order_item_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `otp`
@@ -1164,7 +1483,13 @@ ALTER TABLE `purchase_item`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

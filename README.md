@@ -10,6 +10,7 @@
 
 React 函式庫
 Next.js 框架
+
 後端技術棧:
 
 Express 框架
@@ -29,14 +30,17 @@ LinePay
 靈活的技術架構: 前端採用 React 和 Next.js，後端採用 Express 和 Laravel，提供靈活且可擴展的技術架構，以應對未來的功能擴展和性能優化需求。
 
 ## 導入模組
-在開始使用這個專案之前，你需要先安裝必要的依賴。請在 next 和 express 的路徑下各自執行以下命令：
+在開始使用這個專案之前，你需要先安裝必要的依賴。請在 next 和 express 的資料夾路徑下各自執行以下命令：
 
 先將 .env.template 改成 .env
+
 在終端機輸入 npm i
 
 資料庫建置
 在本機的 MySQL 建立一個 machi_big_db 資料庫(非MYSQL請至.env修改預設資料庫)
+
 匯入 Machi 資料夾中的 machi_big_db 檔案
+
 新增權限帳號 admin，密碼 12345
 
 ## 開始使用

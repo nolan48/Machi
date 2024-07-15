@@ -46,3 +46,9 @@ LinePay
 ## 開始使用
 在前後端各自終端機輸入 npm run dev
 
+
+## laravel後端版本
+
+請下載下面檔案並替換express
+
+https://github.com/nolan48/machi_laravel

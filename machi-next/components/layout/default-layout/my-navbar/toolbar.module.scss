@@ -30,9 +30,8 @@
   animation-duration: 0.3s;
   animation-fill-mode: both;
   background-color: var(--light-brown);
-  
+  box-shadow: 8px 8px 16px rgba(29, 8, 8, 0.2);
 }
-
 .slideIn-button-active {
   &:hover {
     box-shadow: inset 0 0 0 2px var(--brown);

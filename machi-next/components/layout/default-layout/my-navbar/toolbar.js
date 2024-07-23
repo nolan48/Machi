@@ -59,7 +59,7 @@ export default function Toolbar({ handleShow }) {
           className={`nav-item dropdown ${styles['dropdown']}`}
         >
           <Link
-            className="nav-link dropdown-toggle btn btn-outline-light bg-light-brown"
+            className="nav-link dropdown-toggle btn btn-outline-light bg-light-brown "
             href=""
             role="button"
             data-bs-toggle="dropdown"
@@ -99,7 +99,7 @@ export default function Toolbar({ handleShow }) {
                         : `http://localhost:3005/avatar/${user.user_image}`
                       : '/avatar.svg'
                   }
-                  className="rounded-circle d-block mx-auto"
+                  className="rounded-circle d-block mx-auto "
                   alt="..."
                   width={80}
                   height={80}

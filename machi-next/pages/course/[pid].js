@@ -291,6 +291,13 @@ export default function Detail() {
                       })
                   } else {
                     console.log('用戶未登入')
+                    Swal.fire({
+                      title: '您尚未登入',
+                      text: '請先登入！',
+                      icon: 'error',
+                      confirmButtonColor: '#ab927d',
+                      confirmButtonText: '確定',
+                    })
                   }
                 }}
               >
@@ -329,6 +336,13 @@ export default function Detail() {
                       })
                   } else {
                     console.log('用戶未登入')
+                    Swal.fire({
+                      title: '您尚未登入',
+                      text: '請先登入！',
+                      icon: 'error',
+                      confirmButtonColor: '#ab927d',
+                      confirmButtonText: '確定',
+                    })
                   }
                 }}
               >

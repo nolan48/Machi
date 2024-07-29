@@ -52,3 +52,9 @@ LinePay
 請下載下面檔案並替換express
 
 https://github.com/nolan48/machi_laravel
+
+## 網址
+
+http://18.191.100.228:3000/
+
+上述如果無法進入,請email告知,可能是伺服器掛了
